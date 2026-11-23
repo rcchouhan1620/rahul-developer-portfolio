@@ -1,29 +1,438 @@
-import React,{useState}from'react';
-import{ArrowUpRight,Linkedin,Mail,MapPin,Menu,X,Code2,Database,Cloud,Layers3,Braces,Terminal,GraduationCap,Sparkles,BriefcaseBusiness,CheckCircle2}from'lucide-react';
-const email='rc.chouhan1620@gmail.com',linkedin='https://www.linkedin.com/in/rahul-chouhan-481342384/';
-const skills=[
-['Backend',Braces,['C#','ASP.NET Core','ASP.NET MVC','.NET Framework','RESTful Web API','Entity Framework Core','LINQ']],
-['Frontend',Code2,['Angular','React.js','TypeScript','JavaScript','HTML5','CSS3','Bootstrap','jQuery']],
-['Database & Reporting',Database,['SQL Server','PostgreSQL','Stored Procedures','Telerik Reports','DevExpress Reports']],
-['Tools & Practices',Terminal,['Git','Postman','Swagger','Visual Studio','Clean Architecture','SOLID Principles','Unit Testing (learning)']],
-['Cloud & DevOps',Cloud,['Microsoft Azure (foundational)','Docker (learning)','Jenkins (learning)','GitHub Actions (learning)','CI/CD concepts']]
+
+import React, { useState } from 'react';
+import {
+  ArrowUpRight,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  X,
+  Code2,
+  Database,
+  Cloud,
+  Layers3,
+  Braces,
+  Terminal,
+  GraduationCap,
+  Sparkles,
+  BriefcaseBusiness
+} from 'lucide-react';
+
+const email = 'rc.chouhan1620@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/rahul-chouhan-481342384/';
+
+const skills = [
+  ['Backend', Braces, ['C#', 'ASP.NET Core', 'ASP.NET MVC', '.NET Framework', 'RESTful Web API', 'Entity Framework Core', 'LINQ']],
+  ['Frontend', Code2, ['Angular', 'React.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery']],
+  ['Database & Reporting', Database, ['SQL Server', 'PostgreSQL', 'Stored Procedures', 'Telerik Reports', 'DevExpress Reports']],
+  ['Tools & Practices', Terminal, ['Git', 'Postman', 'Swagger', 'Visual Studio', 'Clean Architecture', 'SOLID Principles', 'Unit Testing (learning)']],
+  ['Cloud & DevOps', Cloud, ['Microsoft Azure (foundational)', 'Docker (learning)', 'Jenkins (learning)', 'GitHub Actions (learning)', 'CI/CD concepts']]
 ];
-const projects=[
-['01','Healthcare Application Development','Enterprise application · Professional experience','Contributed to healthcare applications using C#, ASP.NET Core, Angular, SQL Server and PostgreSQL. Work included REST API development, business logic, third-party integrations, database operations, debugging and application enhancements.',['C#','.NET Core','Angular','SQL Server','PostgreSQL','REST API']],
-['02','JCB & Tractor Service Management','Business management application · Personal project','A management solution for JCB and tractor service operations, covering customers, machines, drivers, service orders, meter-based work entries, payments and maintenance records. Designed around a .NET Clean Architecture approach.',['ASP.NET Core','EF Core','SQL','Clean Architecture','React']],
-['03','FarmLink BANJARA','Agri-business platform · Product initiative','A digital business initiative focused on agricultural products and business buyers, including grains, pulses, flour and fresh vegetables. Product planning spans catalog, packaged products and B2B/B2C workflows.',['Product Planning','Web Application','B2B','B2C']]
+
+const projects = [
+  [
+    '01',
+    'Healthcare Application Development',
+    'Enterprise application · Professional experience',
+    'Contributed to healthcare applications using C#, ASP.NET Core, Angular, SQL Server and PostgreSQL. Work included REST API development, business logic, third-party integrations, database operations, debugging and application enhancements.',
+    ['C#', '.NET Core', 'Angular', 'SQL Server', 'PostgreSQL', 'REST API']
+  ],
+  [
+    '02',
+    'JCB & Tractor Service Management',
+    'Business management application · Personal project',
+    'A management solution for JCB and tractor service operations, covering customers, machines, drivers, service orders, meter-based work entries, payments and maintenance records. Designed around a .NET Clean Architecture approach.',
+    ['ASP.NET Core', 'EF Core', 'SQL', 'Clean Architecture', 'React']
+  ],
+  [
+    '03',
+    'FarmLink BANJARA',
+    'Agri-business platform · Product initiative',
+    'A digital business initiative focused on agricultural products and business buyers, including grains, pulses, flour and fresh vegetables. Product planning spans catalog, packaged products and B2B/B2C workflows.',
+    ['Product Planning', 'Web Application', 'B2B', 'B2C']
+  ]
 ];
-function Heading({n,title,sub}){return <div className="heading"><span>{n} /</span><div><h2>{title}</h2><p>{sub}</p></div></div>}
-export default function App(){const[open,setOpen]=useState(false);const nav=['About','Skills','Experience','Projects','Contact'];return <div className="shell"><div className="glow g1"/><div className="glow g2"/>
-<header><a className="brand" href="#home"><b>R</b> rahul<span>.</span></a><button className="hamb" onClick={()=>setOpen(!open)} aria-label="Toggle menu">{open?<X/>:<Menu/>}</button><nav className={open?'show':''}>{nav.map(x=><a onClick={()=>setOpen(false)} href={'#'+x.toLowerCase()} key={x}>{x}</a>)}<a className="navbtn" href={'mailto:'+email}>Let's talk ↗</a></nav></header>
-<main>
-<section className="hero" id="home"><div><div className="eyebrow"><i/> OPEN TO .NET / FULL STACK OPPORTUNITIES</div><h1>Building useful<br/><em>software that works.</em></h1><p className="lead">Hi, I'm <strong>Rahul Chouhan</strong> — a Software Engineer focused on building reliable web applications with C#, ASP.NET Core and modern frontend technologies.</p><div className="actions"><a className="primary" href="#projects">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href={'mailto:'+email}><Mail size={17}/> Contact me</a></div><div className="meta"><span><MapPin/> Indore, Madhya Pradesh, India</span><span><BriefcaseBusiness/> 3.5+ years experience</span></div></div>
-<div className="visual"><div className="ring r1"/><div className="ring r2"/><div className="code"><div className="codehead"><span>● ● ●</span> developer.cs <small>● LIVE</small></div><pre><span>01</span> <b>public class</b> <i>Developer</i>{'\n'}<span>02</span> {'{'}{'\n'}<span>03</span>   <b>public string</b> Focus =&gt;{'\n'}<span>04</span>     <em>".NET & Full Stack"</em>;{'\n'}<span>05</span>   <b>public string</b> Mindset =&gt;{'\n'}<span>06</span>     <em>"Learn. Build. Improve."</em>;{'\n'}<span>07</span> {'}'}</pre><div className="codefoot">✓ Ready to build <small>UTF-8 · C#</small></div></div><div className="float f1"><Code2/> Clean code</div><div className="float f2"><Layers3/> Full stack</div></div><a className="scroll" href="#about">— &nbsp; SCROLL TO EXPLORE</a></section>
-<section className="stats"><div><b>3.5+</b><span>Years of experience</span></div><div><b>.NET</b><span>Core specialization</span></div><div><b>Full</b><span>Stack development</span></div><div><b>2022</b><span>B.Tech graduate</span></div></section>
-<section className="section" id="about"><Heading n="01" title="A little about me" sub="Curious by nature. Engineer by profession."/><div className="about"><div><h3>I enjoy turning real-world requirements into <em>practical, maintainable software.</em></h3><p>I'm a Software Engineer at Virim Infotech Private Limited, working on enterprise healthcare applications. My work has involved backend development, REST APIs, frontend integration, database work, debugging and application enhancements.</p><p>I care about readable code, understanding the problem before choosing a solution, and continuously improving my engineering skills.</p></div><aside>{[['Currently','Software Engineer · Virim Infotech'],['Based in','Indore, India'],['Education','B.Tech · Computer Engineering'],['Interested in','.NET, Full Stack, Cloud']].map(([a,b])=><div className="info" key={a}><small>{a}</small><b>{b}</b></div>)}</aside></div></section>
-<section className="section" id="skills"><Heading n="02" title="Tools of my trade" sub="Technologies I work with and continue to grow in."/><div className="skills">{skills.map(([name,Icon,tags])=><article className="card" key={name}><div className="icon"><Icon/></div><h3>{name}</h3><div className="tags">{tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div><p className="note"><Sparkles/> Skills marked as learning or foundational are areas I'm actively developing, not claims of production-level experience.</p></section>
-<section className="section" id="experience"><Heading n="03" title="Where I've worked" sub="My professional journey so far."/><div className="timeline"><div className="pin"/><div><small className="eyebrow">MARCH 2023 — PRESENT</small><h3>Software Engineer</h3><p className="muted">Virim Infotech Private Limited · Indore</p><ul>{['Develop and maintain enterprise healthcare applications using C#, ASP.NET Core, Angular, SQL Server and PostgreSQL.','Build RESTful Web APIs and implement business logic using Entity Framework Core and LINQ.','Work on frontend development and API integration using Angular, TypeScript, JavaScript, HTML and CSS.','Integrate third-party APIs and healthcare systems to support data exchange.','Contribute to database design, SQL queries, stored procedures, debugging and performance improvements.','Collaborate on requirements, feature delivery, bug fixes, testing and maintenance.'].map(x=><li key={x}>{x}</li>)}</ul></div></div></section>
-<section className="section" id="projects"><Heading n="04" title="Selected projects" sub="A mix of professional experience and initiatives."/><div className="projects">{projects.map(([n,title,type,desc,tags])=><article className="card project" key={n}><div className="projecttop"><span>{n}</span><ArrowUpRight/></div><small>{type}</small><h3>{title}</h3><p>{desc}</p><div className="tags">{tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div><p className="note"><Sparkles/> Project descriptions are high-level. Add public demos or repository links only when the code and details are ready to share.</p></section>
-<section className="section"><Heading n="05" title="Education" sub="The foundation behind my engineering journey."/><div className="education"><div className="icon"><GraduationCap/></div><div><small className="eyebrow">2018 — 2022</small><h3>Bachelor of Technology (B.Tech)</h3><p>Computer Engineering · IES College of Technology, Bhopal</p></div><b>8.4 GPA</b></div></section>
-<section className="contact" id="contact"><div className="eyebrow"><i/> HAVE A ROLE OR PROJECT IN MIND?</div><h2>Let's build something<br/><em>meaningful together.</em></h2><p>I'm open to discussing .NET and full-stack software engineering opportunities.</p><a className="primary" href={'mailto:'+email+'?subject=Opportunity%20for%20Rahul%20Chouhan'}>Get in touch <ArrowUpRight size={17}/></a></section>
-</main><footer><a className="brand" href="#home"><b>R</b> rahul<span>.</span></a><small>© {new Date().getFullYear()} Rahul Chouhan. Built with React.</small><div><a href={'mailto:'+email}><Mail/></a><a href={linkedin} target="_blank" rel="noreferrer"><Linkedin/></a></div></footer></div>}
+
+function Heading({ n, title, sub }) {
+  return (
+    <div className="heading">
+      <span>{n} /</span>
+      <div>
+        <h2>{title}</h2>
+        <p>{sub}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  const [open, setOpen] = useState(false);
+
+  const nav = ['About', 'Skills', 'Experience', 'Projects', 'Contact'];
+
+  return (
+    <div className="shell">
+      <div className="glow g1" />
+      <div className="glow g2" />
+
+      <header>
+        <a className="brand" href="#home">
+          <b>R</b> rahul<span>.</span>
+        </a>
+
+        <button
+          className="hamb"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          {open ? <X /> : <Menu />}
+        </button>
+
+        <nav className={open ? 'show' : ''}>
+          {nav.map(x => (
+            <a
+              onClick={() => setOpen(false)}
+              href={'#' + x.toLowerCase()}
+              key={x}
+            >
+              {x}
+            </a>
+          ))}
+          <a className="navbtn" href={'mailto:' + email}>
+            Let's talk ↗
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        {/* HERO SECTION */}
+        <section className="hero" id="home">
+          <div>
+            <div className="eyebrow">
+              <i /> OPEN TO .NET / FULL STACK OPPORTUNITIES
+            </div>
+
+            <h1>
+              Building useful
+              <br />
+              <em>software that works.</em>
+            </h1>
+
+            <p className="lead">
+              Hi, I'm <strong>Rahul Chouhan</strong> — a Software Engineer
+              focused on building reliable web applications with C#,
+              ASP.NET Core and modern frontend technologies.
+            </p>
+
+            {/* UPDATED ACTION BUTTONS */}
+            <div className="actions">
+              <a className="primary" href="#projects">
+                Explore my work <ArrowUpRight size={17} />
+              </a>
+
+              <a
+                className="secondary"
+                href="/Rahul_Chouhan_Resume.pdf"
+                download="Rahul_Chouhan_Resume.pdf"
+              >
+                Download Resume <ArrowUpRight size={17} />
+              </a>
+
+              <a className="secondary" href={'mailto:' + email}>
+                <Mail size={17} /> Contact me
+              </a>
+            </div>
+
+            <div className="meta">
+              <span>
+                <MapPin /> Indore, Madhya Pradesh, India
+              </span>
+              <span>
+                <BriefcaseBusiness /> 3.5+ years experience
+              </span>
+            </div>
+          </div>
+
+          <div className="visual">
+            <div className="ring r1" />
+            <div className="ring r2" />
+
+            <div className="code">
+              <div className="codehead">
+                <span>● ● ●</span> developer.cs
+                <small>● LIVE</small>
+              </div>
+
+              <pre>
+                <span>01</span> <b>public class</b> <i>Developer</i>
+                {'\n'}
+                <span>02</span> {'{'}
+                {'\n'}
+                <span>03</span> {'  '}<b>public string</b> Focus =&gt;
+                {'\n'}
+                <span>04</span> {'    '}<em>".NET & Full Stack"</em>;
+                {'\n'}
+                <span>05</span> {'  '}<b>public string</b> Mindset =&gt;
+                {'\n'}
+                <span>06</span> {'    '}<em>"Learn. Build. Improve."</em>;
+                {'\n'}
+                <span>07</span> {'}'}
+              </pre>
+
+              <div className="codefoot">
+                ✓ Ready to build <small>UTF-8 · C#</small>
+              </div>
+            </div>
+
+            <div className="float f1">
+              <Code2 /> Clean code
+            </div>
+            <div className="float f2">
+              <Layers3 /> Full stack
+            </div>
+          </div>
+
+          <a className="scroll" href="#about">
+            — &nbsp; SCROLL TO EXPLORE
+          </a>
+        </section>
+
+        {/* STATS */}
+        <section className="stats">
+          <div>
+            <b>3.5+</b>
+            <span>Years of experience</span>
+          </div>
+          <div>
+            <b>.NET</b>
+            <span>Core specialization</span>
+          </div>
+          <div>
+            <b>Full</b>
+            <span>Stack development</span>
+          </div>
+          <div>
+            <b>2022</b>
+            <span>B.Tech graduate</span>
+          </div>
+        </section>
+
+        {/* ABOUT */}
+        <section className="section" id="about">
+          <Heading
+            n="01"
+            title="A little about me"
+            sub="Curious by nature. Engineer by profession."
+          />
+
+          <div className="about">
+            <div>
+              <h3>
+                I enjoy turning real-world requirements into{' '}
+                <em>practical, maintainable software.</em>
+              </h3>
+
+              <p>
+                I'm a Software Engineer at Virim Infotech Private Limited,
+                working on enterprise healthcare applications. My work has
+                involved backend development, REST APIs, frontend integration,
+                database work, debugging and application enhancements.
+              </p>
+
+              <p>
+                I care about readable code, understanding the problem before
+                choosing a solution, and continuously improving my
+                engineering skills.
+              </p>
+            </div>
+
+            <aside>
+              {[
+                ['Currently', 'Software Engineer · Virim Infotech'],
+                ['Based in', 'Indore, India'],
+                ['Education', 'B.Tech · Computer Engineering'],
+                ['Interested in', '.NET, Full Stack, Cloud']
+              ].map(([a, b]) => (
+                <div className="info" key={a}>
+                  <small>{a}</small>
+                  <b>{b}</b>
+                </div>
+              ))}
+            </aside>
+          </div>
+        </section>
+
+        {/* SKILLS */}
+        <section className="section" id="skills">
+          <Heading
+            n="02"
+            title="Tools of my trade"
+            sub="Technologies I work with and continue to grow in."
+          />
+
+          <div className="skills">
+            {skills.map(([name, Icon, tags]) => (
+              <article className="card" key={name}>
+                <div className="icon">
+                  <Icon />
+                </div>
+                <h3>{name}</h3>
+                <div className="tags">
+                  {tags.map(t => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="note">
+            <Sparkles />
+            Skills marked as learning or foundational are areas I'm actively
+            developing, not claims of production-level experience.
+          </p>
+        </section>
+
+        {/* EXPERIENCE */}
+        <section className="section" id="experience">
+          <Heading
+            n="03"
+            title="Where I've worked"
+            sub="My professional journey so far."
+          />
+
+          <div className="timeline">
+            <div className="pin" />
+            <div>
+              <small className="eyebrow">MARCH 2023 — PRESENT</small>
+              <h3>Software Engineer</h3>
+              <p className="muted">
+                Virim Infotech Private Limited · Indore
+              </p>
+
+              <ul>
+                {[
+                  'Develop and maintain enterprise healthcare applications using C#, ASP.NET Core, Angular, SQL Server and PostgreSQL.',
+                  'Build RESTful Web APIs and implement business logic using Entity Framework Core and LINQ.',
+                  'Work on frontend development and API integration using Angular, TypeScript, JavaScript, HTML and CSS.',
+                  'Integrate third-party APIs and healthcare systems to support data exchange.',
+                  'Contribute to database design, SQL queries, stored procedures, debugging and performance improvements.',
+                  'Collaborate on requirements, feature delivery, bug fixes, testing and maintenance.'
+                ].map(x => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECTS */}
+        <section className="section" id="projects">
+          <Heading
+            n="04"
+            title="Selected projects"
+            sub="A mix of professional experience and initiatives."
+          />
+
+          <div className="projects">
+            {projects.map(([n, title, type, desc, tags]) => (
+              <article className="card project" key={n}>
+                <div className="projecttop">
+                  <span>{n}</span>
+                  <ArrowUpRight />
+                </div>
+
+                <small>{type}</small>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+
+                <div className="tags">
+                  {tags.map(t => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="note">
+            <Sparkles />
+            Project descriptions are high-level. Add public demos or
+            repository links only when the code and details are ready to share.
+          </p>
+        </section>
+
+        {/* EDUCATION */}
+        <section className="section">
+          <Heading
+            n="05"
+            title="Education"
+            sub="The foundation behind my engineering journey."
+          />
+
+          <div className="education">
+            <div className="icon">
+              <GraduationCap />
+            </div>
+
+            <div>
+              <small className="eyebrow">2018 — 2022</small>
+              <h3>Bachelor of Technology (B.Tech)</h3>
+              <p>
+                Computer Engineering · IES College of Technology, Bhopal
+              </p>
+            </div>
+
+            <b>8.4 GPA</b>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section className="contact" id="contact">
+          <div className="eyebrow">
+            <i /> HAVE A ROLE OR PROJECT IN MIND?
+          </div>
+
+          <h2>
+            Let's build something
+            <br />
+            <em>meaningful together.</em>
+          </h2>
+
+          <p>
+            I'm open to discussing .NET and full-stack software engineering
+            opportunities.
+          </p>
+
+          <a
+            className="primary"
+            href={'mailto:' + email + '?subject=Opportunity%20for%20Rahul%20Chouhan'}
+          >
+            Get in touch <ArrowUpRight size={17} />
+          </a>
+        </section>
+      </main>
+
+      {/* FOOTER */}
+      <footer>
+        <a className="brand" href="#home">
+          <b>R</b> rahul<span>.</span>
+        </a>
+
+        <small>
+          © {new Date().getFullYear()} Rahul Chouhan. Built with React.
+        </small>
+
+        <div>
+          <a href={'mailto:' + email}>
+            <Mail />
+          </a>
+
+          <a href={linkedin} target="_blank" rel="noreferrer">
+            <Linkedin />
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+}
